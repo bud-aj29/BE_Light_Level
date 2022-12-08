@@ -1,0 +1,68 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "minecraft:player",
+      "materials": {
+	//addon materials
+	"info_screen": "entity_alphablend"
+	//end addon materials
+      },
+      "textures": {
+	//addon textures	
+	"info_screen_number_8pt_0": "textures/addon/number/number_8pt_0",
+	"info_screen_number_8pt_1": "textures/addon/number/number_8pt_1",
+	"info_screen_number_8pt_2": "textures/addon/number/number_8pt_2",
+	"info_screen_number_8pt_3": "textures/addon/number/number_8pt_3",
+	"info_screen_number_8pt_4": "textures/addon/number/number_8pt_4",
+	"info_screen_number_8pt_5": "textures/addon/number/number_8pt_5",
+	"info_screen_number_8pt_6": "textures/addon/number/number_8pt_6",
+	"info_screen_number_8pt_7": "textures/addon/number/number_8pt_7",
+	"info_screen_number_8pt_8": "textures/addon/number/number_8pt_8",
+	"info_screen_number_8pt_9": "textures/addon/number/number_8pt_9",
+
+	"info_screen_character_8pt_space": "textures/addon/character/character_8pt_space",
+	"info_screen_character_8pt_light": "textures/addon/character/character_8pt_light"
+	//end addon textures
+      },
+      "geometry": {
+	//addon geometry
+	"info_screen_light_10": "geometry.info_screen_light_10",
+	"info_screen_light_0": "geometry.info_screen_light_0",
+	"info_screen_light_unit": "geometry.info_screen_light_unit"
+	//end addon geometry
+      },
+      "scripts": {
+        "pre_animation": [
+          "variable.helmet_layer_visible = 1.0;", //vanilla
+          "variable.leg_layer_visible = 1.0;", //vanilla
+          "variable.boot_layer_visible = 1.0;", //vanilla
+          "variable.chest_layer_visible = 1.0;", //vanilla
+          "variable.attack_body_rot_y = Math.sin(360*Math.sqrt(variable.attack_time)) * 5.0;", //vanilla
+          "variable.tcos0 = (math.cos(query.modified_distance_moved * 38.17) * query.modified_move_speed / variable.gliding_speed_value) * 57.3;", //vanilla
+          "variable.first_person_rotation_factor = math.sin((1 - variable.attack_time) * 180.0);", //vanilla
+          "variable.hand_bob = query.life_time < 0.01 ? 0.0 : variable.hand_bob + ((query.is_on_ground && query.is_alive ? math.clamp(math.sqrt(math.pow(query.position_delta(0), 2.0) + math.pow(query.position_delta(2), 2.0)), 0.0, 0.1) : 0.0) - variable.hand_bob) * 0.02;", //vanilla
+          "variable.map_angle = math.clamp(1 - variable.player_x_rotation / 45.1, 0.0, 1.0);", //vanilla
+          "variable.item_use_normalized = query.main_hand_item_use_duration / query.main_hand_item_max_duration;" , //vanilla
+	  
+	  //addon pre_animation
+	  "variable.info_screen_var_full_show_always = variable.is_first_person && !query.is_gliding && !query.is_swimming && !query.is_riding;",	  
+	  "variable.info_screen_var_light_10 = query.mark_variant/10;",
+	  "variable.info_screen_var_light_0 = query.mark_variant;"
+	  //end addon pre_animation
+        ]
+      },
+      "render_controllers": [
+        { "controller.render.player.first_person": "variable.is_first_person" }, //vanilla
+        { "controller.render.player.third_person": "!variable.is_first_person && !variable.map_face_icon" }, //vanilla
+        { "controller.render.player.map": "variable.map_face_icon" } , //vanilla
+	
+	//addon render_controllers
+	{ "controller.render.info_screen_light_10": "variable.info_screen_var_full_show_always" },
+	{ "controller.render.info_screen_light_0": "variable.info_screen_var_full_show_always" },
+	{ "controller.render.info_screen_light_unit": "variable.info_screen_var_full_show_always" }
+	//end addon render_controllers
+      ]
+    }
+  }
+}

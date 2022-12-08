@@ -1,0 +1,25 @@
+{
+	"format_version": 2,
+	"header": {
+		"description": "Light level where player is standing",
+		"name": "Light_Level",
+		"uuid": "cefeca49-da8d-4c46-82f7-a4bfe7d31ea4",
+		"version": [ 0,0,2 ],
+		"min_engine_version": [ 1, 19, 30 ]
+	},
+	"modules": [
+		{
+			"description": "",
+			"type": "data",
+			"uuid": "a77c63b2-8a9d-4bd5-bac2-45efe125a589",
+			"version": [0, 0, 1]
+		}
+	],
+    "dependencies": [
+        {
+            "uuid": "c26b6cdd-410d-47c1-af00-911715530244",
+            "version": [0, 0, 2]
+        }
+    ]
+}
+
