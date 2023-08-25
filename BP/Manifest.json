@@ -3,22 +3,22 @@
 	"header": {
 		"description": "Light level where player is standing",
 		"name": "Light_Level",
-		"uuid": "cefeca49-da8d-4c46-82f7-a4bfe7d31ea4",
-		"version": [ 0,0,2 ],
-		"min_engine_version": [ 1, 19, 30 ]
+		"uuid": "2a69a27d-0efa-4a84-bd81-139bebea1ed5",
+		"version": [ 0,0,3 ],
+		"min_engine_version": [ 1, 20, 10 ]
 	},
 	"modules": [
 		{
 			"description": "",
 			"type": "data",
-			"uuid": "a77c63b2-8a9d-4bd5-bac2-45efe125a589",
+			"uuid": "975fdc2e-b9b4-4d24-ae1c-1de219d944b6",
 			"version": [0, 0, 1]
 		}
 	],
     "dependencies": [
         {
-            "uuid": "c26b6cdd-410d-47c1-af00-911715530244",
-            "version": [0, 0, 2]
+            "uuid": "3568166c-3d47-4dad-8a9d-8c5e113c29e2",
+            "version": [0, 0, 3]
         }
     ]
 }

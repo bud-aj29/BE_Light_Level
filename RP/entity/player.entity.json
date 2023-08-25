@@ -53,9 +53,11 @@
         ]
       },
       "render_controllers": [
-        { "controller.render.player.first_person": "variable.is_first_person" }, //vanilla
-        { "controller.render.player.third_person": "!variable.is_first_person && !variable.map_face_icon" }, //vanilla
-        { "controller.render.player.map": "variable.map_face_icon" } , //vanilla
+        { "controller.render.player.first_person_spectator": "variable.is_first_person && query.is_spectator" }, //Vanilla
+        { "controller.render.player.third_person_spectator": "!variable.is_first_person && !variable.map_face_icon && query.is_spectator" }, //Vanilla
+        { "controller.render.player.first_person": "variable.is_first_person && !query.is_spectator" }, //Vanilla
+        { "controller.render.player.third_person": "!variable.is_first_person && !variable.map_face_icon && !query.is_spectator" }, //Vanilla
+        { "controller.render.player.map": "variable.map_face_icon" } , //Vanilla, add comma for addon
 	
 	//addon render_controllers
 	{ "controller.render.info_screen_light_10": "variable.info_screen_var_full_show_always" },
